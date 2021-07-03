@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Post() {
   return (
-    <article className="flex flex-col shadow my-4">
-      <Image className="object-cover" src="/landscape.webp" width="500" height="500" alt="blog post image" />
+    <article className="flex flex-col shadow mb-4">
+      <Image className="object-cover absolute z-10" src="/landscape.webp" width="500" height="500" alt="blog post image" />
       <div className="bg-white flex flex-col justify-start p-6">
         <a href="#" className="text-blue-700 text-sm font-bold uppercase pb-4">
           Automotive, Finance
