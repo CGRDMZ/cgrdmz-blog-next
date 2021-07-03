@@ -48,10 +48,7 @@ export default function Navigation() {
               "sm:static",
               "sm:flex",
               "sm:flex-row",
-              "shadow",
-              {
-                "sm:hidden": navOpen,
-              }
+              "hidden"
             )}
           >
             <NavItem>About</NavItem>

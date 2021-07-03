@@ -1,22 +1,22 @@
 import Image from "next/image";
 
-export default function Post() {
+export default function Post({imageUrl, title, categories, author, date}) {
   return (
     <article className="flex flex-col shadow mb-4">
-      <Image className="object-cover absolute z-10" src="/landscape.webp" width="500" height="500" alt="blog post image" />
+      <Image className="object-cover absolute z-10" src={imageUrl} width="500" height="500" alt="blog post image" />
       <div className="bg-white flex flex-col justify-start p-6">
-        <a href="#" className="text-blue-700 text-sm font-bold uppercase pb-4">
-          Automotive, Finance
-        </a>
+        <div className="inline-block">
+          {categories.map((category) => <a href="#" className="text-blue-700 text-sm font-bold uppercase pb-4 mr-2" key={category}>{category}</a>)}
+        </div>
         <a href="#" className="text-3xl font-bold hover:text-gray-700 pb-4">
-          Lorem Ipsum Dolor Sit Amet Dolor Sit Amet
+          {title}
         </a>
         <p className="text-sm pb-3">
           By{" "}
           <a href="#" className="font-semibold hover:text-gray-800">
-            David Grzyb
+            {author}
           </a>
-          , Published on January 12th, 2020
+          , Published on {new Date(date).toLocaleString()}
         </p>
         <a href="#" className="pb-6">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis
