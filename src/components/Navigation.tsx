@@ -2,19 +2,24 @@ import { useState } from "react";
 import Logo from "./Logo";
 import NavItem from "./NavItem";
 import cx from "classnames";
+import Link from "next/link"
 
 export default function Navigation() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
 
-  const onNavButtonClick = (e) => {
+  const onNavButtonClick = () => {
     setNavOpen(!navOpen);
   };
 
   return (
     <>
       <div className="w-screen bg-gray-800 relative">
-        <nav className="container xl:max-w-6xl px-2 container flex flex-row items-center mx-auto justify-between">
-          <Logo />
+        <nav className="w-full container xl:max-w-6xl px-2 flex flex-row items-center justify-between mx-auto">
+          <Link href="/">
+            <a>
+              <Logo />
+            </a>
+          </Link>
           <div
             className={cx(
               "fixed",
@@ -44,8 +49,7 @@ export default function Navigation() {
           </div>
           <ul
             className={cx(
-              "fixed top-1/2 left-1/2 text-white",
-              "sm:static",
+              "text-white",
               "sm:flex",
               "sm:flex-row",
               "hidden"

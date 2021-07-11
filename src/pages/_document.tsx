@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body className="no-scrollbar">
+        <body className="no-scrollbar min-h-screen">
           <Main />
           <NextScript />
         </body>
