@@ -24,6 +24,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       pageArray,
       "currentPage": 1
     },
-    revalidate: +process.env.REVALIDATE_TIME! || 120
+    revalidate: +process.env.VALIDATE_TIME! || 120
   };
 };
