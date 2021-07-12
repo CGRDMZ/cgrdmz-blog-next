@@ -1,7 +1,4 @@
 import { GetStaticProps } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import Post from "../components/Post";
 import PostList from "../components/PostList";
 import { getPosts, IPost, pages } from "../model/postModel";
 

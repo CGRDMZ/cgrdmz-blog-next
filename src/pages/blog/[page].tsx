@@ -1,10 +1,7 @@
 import {
   getPosts,
-  getPostSize,
   IPost,
   pages,
-  postPerPage,
-  postSize,
 } from "../../model/postModel";
 import PostList from "../../components/PostList";
 import { GetStaticProps } from "next";

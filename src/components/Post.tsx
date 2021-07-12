@@ -1,7 +1,6 @@
 import Image from "next/image";
 import BlockContent from "@sanity/block-content-to-react";
 import Link from "next/link";
-import cls from "classnames";
 
 interface Props {
   imageUrl: string;

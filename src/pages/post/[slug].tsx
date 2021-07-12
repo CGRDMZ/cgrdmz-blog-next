@@ -7,7 +7,6 @@ import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { IPost } from "../../model/postModel";
 import { useRouter } from "next/router";
-import Error from "next/error";
 import serializers from "../../sanity/serializers";
 
 interface Props {
