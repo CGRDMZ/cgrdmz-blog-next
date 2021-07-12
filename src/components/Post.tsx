@@ -35,6 +35,7 @@ export default function Post({
           layout="fill"
           alt="blog post image"
           objectFit="cover"
+          placeholder="empty"
         />
       </div>
       <div className="bg-white flex flex-col justify-start p-6 max-w-3xl w-full flex-1">
