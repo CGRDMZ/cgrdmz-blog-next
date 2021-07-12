@@ -8,6 +8,7 @@ import { ParsedUrlQuery } from "querystring";
 import { IPost } from "../../model/postModel";
 import { useRouter } from "next/router";
 import Error from "next/error";
+import serializers from "../../sanity/serializers";
 
 interface Props {
   post: IPost;
@@ -25,7 +26,7 @@ export default function PostDetail({ post }: Props) {
       <div className="mt-5">
         <Image src={post.imageUrl} width="1280" height="720" alt="post image" />
       </div>
-      <div className=" py-3 mt-2">
+      <div className=" py-3">
         <div className="font-bold text-4xl py-1">{post.title}</div>
         <div className="py-1">
           <div className="text-gray-800 inline-flex flex-wrap">
@@ -42,8 +43,8 @@ export default function PostDetail({ post }: Props) {
           ))}
         </div>
       </div>
-      <div className="pt-5 pb-10 leading-8 text-lg">
-        <BlockContent className="space-y-5" blocks={post.body} />
+      <div className="pt-2 pb-10 leading-8 text-lg">
+        <BlockContent className="space-y-5" blocks={post.body} serializers={serializers} />
       </div>
     </div>
   );
