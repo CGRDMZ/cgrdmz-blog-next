@@ -22,7 +22,7 @@ export default function PostDetail({ post }: Props) {
   }
 
   return (
-    <div className="container xl:max-w-6xl mx-auto px-2">
+    <div className="container xl:max-w-6xl mx-auto px-3">
       <div className="mt-5">
         <Image src={post.imageUrl} width="1280" height="720" alt="post image" />
       </div>
