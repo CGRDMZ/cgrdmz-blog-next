@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="google-site-verification" content="kzk9fbsVpS2ZlmkHZXG6bKshCiULwxdkoz0dVLggv9Y" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-h-screen">
+      <div className="min-h-screen flex flex-col">
         <Navigation />
         <Component {...pageProps} />
         <Footer />

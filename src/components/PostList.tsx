@@ -11,7 +11,7 @@ interface Props {
 export default function PostList({ posts, pageArray, currentPage }: Props) {
   return (
     <div className="container w-full lg:max-w-6xl mx-auto sm:px-3 min-h-full">
-      <div className="flex flex-row flex-wrap justify-center mt-3 gap-6">
+      <div className="flex flex-row flex-wrap justify-center lg:justify-start mt-5 gap-6">
         {posts.map((post) => {
           return (
             <Post
