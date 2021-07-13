@@ -43,7 +43,7 @@ export default function PostDetail({ post }: Props) {
         </div>
       </div>
       <div className="pt-2 pb-10 leading-8 text-lg">
-        <BlockContent className="space-y-5" blocks={post.body} serializers={serializers} />
+        <BlockContent className="space-y-5 text-justify" blocks={post.body} serializers={serializers} />
       </div>
     </div>
   );
