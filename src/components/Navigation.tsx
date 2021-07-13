@@ -43,7 +43,7 @@ export default function Navigation() {
             )}
           >
             <button className="text-bold text-3xl w-10 h-10 mr-3 md:mr-5 bg-gray-400 rounded-full" onClick={onNavButtonClick}>X</button>
-            <NavItem>About</NavItem>
+            <NavItem url="/about">About</NavItem>
             <NavItem>Portfolio</NavItem>
             <NavItem>Contact</NavItem>
           </div>
@@ -55,7 +55,7 @@ export default function Navigation() {
               "hidden"
             )}
           >
-            <NavItem>About</NavItem>
+            <NavItem url="/about">About</NavItem>
             <NavItem>Portfolio</NavItem>
             <NavItem>Contact</NavItem>
           </ul>
