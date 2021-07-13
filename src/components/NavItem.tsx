@@ -1,11 +1,14 @@
+import Link from "next/link";
+
 interface Props {
-  children: string
+  children: string;
+  url?: string;
 }
 
-export default function NavItem({ children } : Props) {
+export default function NavItem({ children, url }: Props) {
   return (
-    <a href="#" className="pr-3 md:pr-5">
-      {children}
-    </a>
+    <Link href={url || "#"}>
+      <a className="pr-3 md:pr-5">{children}</a>
+    </Link>
   );
 }
