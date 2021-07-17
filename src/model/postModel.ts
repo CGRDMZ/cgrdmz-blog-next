@@ -15,19 +15,19 @@ interface Slug {
 }
 
 interface Author {
-	name: string;
+  name: string;
 }
 export const postPerPage: number = 4;
 
 export const postSize = async () => await getPostSize();
 
 export const pages = async () => {
-	const size: number = await postSize();
+  const size: number = await postSize();
   const pages: Array<string> = [];
 
   for (let i = 1; i <= Math.ceil(size / postPerPage); i++)
     pages.push(i.toString());
-	return pages;
+  return pages;
 };
 
 export async function getPostSize() {
@@ -42,7 +42,6 @@ export async function getPostSize() {
 export async function getPostByPage(page: number) {
   return await getPosts(page);
 }
-
 
 export async function getPosts(page: number = 1) {
   const query: string = `
@@ -86,7 +85,12 @@ export async function getPostSlugs() {
 export async function getPostBySlug(slug: String) {
   const query: string = `*[_type == "post" && slug.current == $slug && !(_id in path("drafts.**"))][0]{
 		title,
-		body,
+		body[] {
+      ...,
+      asset-> {
+        url
+      }
+    },
 		_createdAt,
 		author->,
 		"categories": categories[]->title,
