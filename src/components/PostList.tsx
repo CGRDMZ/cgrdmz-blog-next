@@ -12,7 +12,7 @@ export default function PostList({ posts, pageArray, currentPage }: Props) {
   return (
     <div className="container w-full lg:max-w-6xl mx-auto sm:px-3 min-h-full">
       {posts && (
-        <div className="flex flex-row flex-wrap justify-center lg:justify-start mt-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-6">
           {posts?.map((post) => {
             return (
               <Post

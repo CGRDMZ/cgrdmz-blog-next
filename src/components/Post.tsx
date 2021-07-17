@@ -26,7 +26,7 @@ export default function Post({
   const postUrl = `/post/${encodeURIComponent(slug || "")}`;
 
   return (
-    <article className="flex flex-col max-w-xl filter drop-shadow transform transition-all duration-75 ease-in-out sm:hover:-translate-y-1 sm:hover:shadow-xl rounded-lg overflow-hidden flex-grow">
+    <article className="flex flex-col filter drop-shadow transform transition-all duration-75 ease-in-out sm:hover:-translate-y-1 sm:hover:shadow-xl sm:rounded-lg overflow-hidden flex-grow">
       <Link href={postUrl}>
         <a>
           <div className="w-full h-60 md:h-80 relative object-cover z-10 sm:rounded-t-lg">
