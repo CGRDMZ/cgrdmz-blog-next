@@ -32,7 +32,7 @@ export const pages = async () => {
 
 export async function getPostSize() {
   const query: string = `
-	*[_type == "post"] {
+	*[_type == "post" && !(_id in path("drafts.**"))] {
 		id
 	}`;
   const queryResult = await sanityClient.fetch<Array<any>>(query);
@@ -46,7 +46,7 @@ export async function getPostByPage(page: number) {
 
 export async function getPosts(page: number = 1) {
   const query: string = `
-	*[_type == "post"] | order(_createdAt desc)[$offset...$page] {
+	*[_type == "post" && !(_id in path("drafts.**"))] | order(_createdAt desc)[$offset...$page] {
 		title,
 		body,
 		_createdAt,
@@ -63,7 +63,7 @@ export async function getPosts(page: number = 1) {
 }
 
 export async function getPostIds() {
-  const query: string = `*[_type == "post"] | order(_createdAt desc) {
+  const query: string = `*[_type == "post" && !(_id in path("drafts.**"))] | order(_createdAt desc) {
 		_id
 	  }`;
   let queryResult = await sanityClient.fetch<Array<any>>(query);
@@ -73,7 +73,7 @@ export async function getPostIds() {
 }
 
 export async function getPostSlugs() {
-  const query: string = `*[_type == "post"] | order(_createdAt desc) {
+  const query: string = `*[_type == "post" && !(_id in path("drafts.**"))] | order(_createdAt desc) {
 		"slug": slug.current
 	}`;
   let queryResult = await sanityClient.fetch<Array<any>>(query);
@@ -84,7 +84,7 @@ export async function getPostSlugs() {
 }
 
 export async function getPostBySlug(slug: String) {
-  const query: string = `*[_type == "post" && slug.current == $slug][0]{
+  const query: string = `*[_type == "post" && slug.current == $slug && !(_id in path("drafts.**"))][0]{
 		title,
 		body,
 		_createdAt,
