@@ -16,7 +16,7 @@ interface Props {
 export default function CodeInput({ node }: Props) {
   const { language, code } = node;
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-min mx-auto">
       <SyntaxHighlighter
         style={darcula}
         language={language}
