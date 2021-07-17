@@ -1,11 +1,13 @@
 import { CodeNode } from "../../sanity/serializers";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import typescript from "react-syntax-highlighter/dist/cjs/languages/hljs/typescript";
-import bash from "react-syntax-highlighter/dist/cjs/languages/hljs/bash";
-import { darcula } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import jsx from "react-syntax-highlighter/dist/cjs/languages/prism/jsx";
+import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
+import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
+import { darcula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-SyntaxHighlighter.registerLanguage("ts", typescript);
+SyntaxHighlighter.registerLanguage("jsx", jsx);
 SyntaxHighlighter.registerLanguage("sh", bash);
+SyntaxHighlighter.registerLanguage("typescript", typescript);
 
 interface Props {
   node: CodeNode;
@@ -14,14 +16,14 @@ interface Props {
 export default function CodeInput({ node }: Props) {
   const { language, code } = node;
   return (
-    <SyntaxHighlighter
-      className="md:w-3/4 mx-auto sm:rounded-lg"
-      style={darcula}
-      language={language}
-      showLineNumbers={true}
-      useInlineStyles
-    >
-      {code}
-    </SyntaxHighlighter>
+    <div className="max-w-3xl mx-auto">
+      <SyntaxHighlighter
+        style={darcula}
+        language={language}
+        showLineNumbers={true}
+      >
+        {code}
+      </SyntaxHighlighter>
+    </div>
   );
 }
