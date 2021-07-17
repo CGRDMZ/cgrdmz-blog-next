@@ -3,14 +3,14 @@ import BlockContent from "@sanity/block-content-to-react";
 import Link from "next/link";
 
 interface Props {
-  imageUrl: string;
-  title: string;
-  categories: Array<string>;
-  author: string;
-  date: Date;
-  blocks: Array<Object> | Object | string;
-  slug: string;
-  leftAligned: boolean;
+  imageUrl?: string;
+  title?: string;
+  categories?: Array<string>;
+  author?: string;
+  date?: Date;
+  blocks?: Array<Object> | Object | string;
+  slug?: string;
+  leftAligned?: boolean;
 }
 
 export default function Post({
@@ -23,7 +23,7 @@ export default function Post({
   slug,
   leftAligned,
 }: Props) {
-  const postUrl = `/post/${encodeURIComponent(slug)}`;
+  const postUrl = `/post/${encodeURIComponent(slug || "")}`;
 
   return (
     <article className="flex flex-col max-w-xl filter drop-shadow transform transition-all duration-75 ease-in-out sm:hover:-translate-y-1 sm:hover:shadow-xl rounded-lg overflow-hidden flex-grow">
@@ -31,7 +31,7 @@ export default function Post({
         <a>
           <div className="w-full h-60 md:h-80 relative object-cover z-10 sm:rounded-t-lg">
             <Image
-              src={imageUrl}
+              src={imageUrl || ""}
               layout="fill"
               alt="blog post image"
               objectFit="cover"
@@ -40,16 +40,18 @@ export default function Post({
             />
           </div>
           <div className="bg-white flex flex-col justify-start p-6 max-w-3xl w-full flex-1">
-            <div className="inline-block">
-              {categories.map((category) => (
-                <a
-                  className="text-blue-700 text-sm font-bold uppercase pb-5 mr-2"
-                  key={category}
-                >
-                  {category}
-                </a>
-              ))}
-            </div>
+            {categories && (
+              <div className="inline-block">
+                {categories.map((category) => (
+                  <a
+                    className="text-blue-700 text-sm font-bold uppercase pb-5 mr-2"
+                    key={category}
+                  >
+                    {category}
+                  </a>
+                ))}
+              </div>
+            )}
             <a className="text-3xl font-bold hover:text-gray-700 pb-1">
               {title}
             </a>
@@ -60,7 +62,7 @@ export default function Post({
               </a>
               , Published on{" "}
               <span className="font-semibold text-gray-400">
-                {new Date(date).toLocaleDateString()}
+                {new Date(date ||"").toLocaleDateString()}
               </span>
             </p>
             <a className="pb-6 w-full lg:max-w-md overflow-ellipsis">

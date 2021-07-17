@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import serializers from "../../sanity/serializers";
 
 interface Props {
-  post: IPost;
+  post?: IPost;
 }
 
 export default function PostDetail({ post }: Props) {
@@ -23,27 +23,27 @@ export default function PostDetail({ post }: Props) {
   return (
     <div className="container xl:max-w-6xl mx-auto px-3">
       <div className="mt-5">
-        <Image src={post.imageUrl} width="1280" height="720" alt="post image" />
+        {post && <Image src={post.imageUrl} width="1280" height="720" alt="post image" />}
       </div>
       <div className=" py-3">
-        <div className="font-bold text-4xl py-1">{post.title}</div>
+        <div className="font-bold text-4xl py-1">{post?.title}</div>
         <div className="py-1">
-          <div className="text-gray-800 inline-flex flex-wrap">
-            <PostDetailItem infoKey="Author" value={post.author.name} />
+          {post && <div className="text-gray-800 inline-flex flex-wrap">
+            <PostDetailItem infoKey="Author" value={post.author?.name} />
             <PostDetailItem
               infoKey="Published At"
               value={new Date(post._createdAt).toLocaleDateString()}
             />
-          </div>
+          </div>}
         </div>
-        <div className="inline-flex flex-wrap">
+        {post && <div className="inline-flex flex-wrap">
           {post.categories.map((val) => (
             <Category key={val} name={val} />
           ))}
-        </div>
+        </div>}
       </div>
       <div className="pt-2 pb-10 leading-8 text-lg">
-        <BlockContent className="space-y-5 text-justify" blocks={post.body} serializers={serializers} />
+        <BlockContent className="space-y-5 text-justify" blocks={post?.body} serializers={serializers} />
       </div>
     </div>
   );
