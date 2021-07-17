@@ -1,4 +1,4 @@
-import { CodeNode } from "../sanity/serializers";
+import { CodeNode } from "../../sanity/serializers";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/hljs/typescript"
 import { darcula } from "react-syntax-highlighter/dist/cjs/styles/hljs";
