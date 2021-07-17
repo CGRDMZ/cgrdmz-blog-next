@@ -23,21 +23,21 @@ export default function PostDetail({ post }: Props) {
   return (
     <div className="container xl:max-w-6xl mx-auto px-3">
       <div className="mt-5">
-        {post && <Image src={post.imageUrl} width="1280" height="720" alt="post image" />}
+        {post && <Image src={post.imageUrl || ""} width="1280" height="720" alt="post image" />}
       </div>
       <div className=" py-3">
         <div className="font-bold text-4xl py-1">{post?.title}</div>
         <div className="py-1">
           {post && <div className="text-gray-800 inline-flex flex-wrap">
-            <PostDetailItem infoKey="Author" value={post.author?.name} />
+            <PostDetailItem infoKey="Author" value={post.author?.name || ""} />
             <PostDetailItem
               infoKey="Published At"
-              value={new Date(post._createdAt).toLocaleDateString()}
+              value={new Date(post._createdAt || "").toLocaleDateString()}
             />
           </div>}
         </div>
         {post && <div className="inline-flex flex-wrap">
-          {post.categories.map((val) => (
+          {post.categories?.map((val) => (
             <Category key={val} name={val} />
           ))}
         </div>}

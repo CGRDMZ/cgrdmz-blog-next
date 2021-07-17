@@ -16,14 +16,14 @@ export default function PostList({ posts, pageArray, currentPage }: Props) {
           {posts?.map((post) => {
             return (
               <Post
-                key={post.slug.current}
+                key={post.slug?.current}
                 title={post.title}
                 imageUrl={post.imageUrl}
                 categories={post.categories}
-                author={post.author.name}
+                author={post.author?.name}
                 date={post._createdAt}
-                slug={post.slug.current}
-                blocks={post.body[0]}
+                slug={post.slug?.current}
+                blocks={post.body ? post.body[0] : ""}
                 leftAligned={false}
               />
             );

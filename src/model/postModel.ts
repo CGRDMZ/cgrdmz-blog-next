@@ -1,13 +1,13 @@
 import sanityClient from "../sanity/sanityClient";
 
 export interface IPost {
-  slug: Slug;
-  imageUrl: string;
-  author: Author;
-  body: Array<Object>;
-  title: string;
-  categories: Array<string>;
-  _createdAt: Date;
+  slug?: Slug;
+  imageUrl?: string;
+  author?: Author;
+  body?: Array<Object>;
+  title?: string;
+  categories?: Array<string>;
+  _createdAt?: Date;
 }
 
 interface Slug {
