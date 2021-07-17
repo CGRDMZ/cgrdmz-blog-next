@@ -26,7 +26,6 @@ export default function BlockRenderer({ node, children }: { node: { style: strin
       children
     );
   }
-  console.log(node);
   
 
   if (style === "blockquote") {

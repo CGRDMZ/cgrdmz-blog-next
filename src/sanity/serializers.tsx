@@ -1,5 +1,6 @@
 import BlockRenderer from "../components/sanity-serializers/BlockRenderer";
 import CodeInput from "../components/sanity-serializers/CodeInput";
+import ImageRenderer from "../components/sanity-serializers/ImageRenderer";
 import { ListItemRenderer, ListRenderer } from "../components/sanity-serializers/ListRenderer";
 
 export interface CodeNode {
@@ -14,7 +15,8 @@ const serializers = {
     codeInput: function CodeBlock({ node }: { node: CodeNode }) {
       return <CodeInput node={node} />;
     },
-    block: BlockRenderer
+    block: BlockRenderer,
+    image: ImageRenderer,
   },
 };
 
