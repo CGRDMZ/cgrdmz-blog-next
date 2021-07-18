@@ -1,4 +1,4 @@
-import { IPost, pages } from "../model/postModel";
+import { IPost } from "../model/postModel";
 import Post from "../components/Post";
 import PostListNavigation from "./PostListNavigation";
 

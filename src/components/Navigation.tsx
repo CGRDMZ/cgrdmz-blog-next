@@ -2,7 +2,7 @@ import { useState } from "react";
 import Logo from "./Logo";
 import NavItem from "./NavItem";
 import cx from "classnames";
-import Link from "next/link"
+import Link from "next/link";
 
 export default function Navigation() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -42,23 +42,27 @@ export default function Navigation() {
               { hidden: !navOpen }
             )}
           >
-            <button className="text-bold text-3xl w-10 h-10 mr-3 md:mr-5 bg-gray-400 rounded-full" onClick={onNavButtonClick}>X</button>
+            <button
+              className="text-bold text-3xl w-10 h-10 mr-3 md:mr-5 bg-gray-400 rounded-full"
+              onClick={onNavButtonClick}
+            >
+              X
+            </button>
+            <div onClick={onNavButtonClick}>
+              <NavItem url="/about">About</NavItem>
+            </div>
+            <div onClick={onNavButtonClick}>
+              <NavItem>Portfolio</NavItem>
+            </div>{" "}
+            <div onClick={onNavButtonClick}>
+              <NavItem>Contact</NavItem>
+            </div>
+          </div>
+          <div className={cx("text-white", "sm:flex", "sm:flex-row", "hidden")}>
             <NavItem url="/about">About</NavItem>
             <NavItem>Portfolio</NavItem>
             <NavItem>Contact</NavItem>
           </div>
-          <ul
-            className={cx(
-              "text-white",
-              "sm:flex",
-              "sm:flex-row",
-              "hidden"
-            )}
-          >
-            <NavItem url="/about">About</NavItem>
-            <NavItem>Portfolio</NavItem>
-            <NavItem>Contact</NavItem>
-          </ul>
           <button
             className="sm:hidden w-10 h-10 relative"
             onClick={onNavButtonClick}

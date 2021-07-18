@@ -13,9 +13,9 @@ export default function PostListNavigationItem({
   navigateToPage,
 }: Props) {
   return (
-    <Link scroll={false} href={`/blog/${navigateToPage}`}>
-      <a>
-        <li
+    <li>
+      <Link scroll={false} href={`/blog/${navigateToPage}`}>
+        <a
           className={clsx(
             "px-3 m-1 border-2 border-gray-500 rounded-full text-md align-middle font-semibold antialiased",
             {
@@ -25,8 +25,8 @@ export default function PostListNavigationItem({
           )}
         >
           {children}
-        </li>
-      </a>
-    </Link>
+        </a>
+      </Link>
+    </li>
   );
 }
