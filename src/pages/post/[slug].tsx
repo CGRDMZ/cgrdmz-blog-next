@@ -38,7 +38,7 @@ export default function PostDetail({ post }: Props) {
           )}
         </div>
         <div className=" py-3">
-          <div className="font-bold text-4xl py-1">{post?.title}</div>
+          <h1 className="font-bold text-4xl py-1">{post?.title}</h1>
           <div className="py-1">
             {post && (
               <div className="text-gray-800 inline-flex flex-wrap">

@@ -52,26 +52,19 @@ export default function Post({
                 ))}
               </div>
             )}
-            <a className="text-3xl font-bold hover:text-gray-700 pb-1">
+            <span className="text-3xl font-bold hover:text-gray-700 pb-1">
               {title}
-            </a>
-            <p className="text-sm pb-5 text-gray-300">
+            </span>
+            <p className="text-sm text-gray-300">
               By{" "}
-              <a className="font-semibold text-gray-400 hover:text-gray-800">
+              <span className="font-semibold text-gray-400 hover:text-gray-800">
                 {author}
-              </a>
+              </span>
               , Published on{" "}
-              <span className="font-semibold text-gray-400">
-                {new Date(date ||"").toLocaleDateString()}
+              <span className="font-semibold text-gray-400 hover:text-gray-800">
+                {new Date(date || "").toLocaleDateString()}
               </span>
             </p>
-            <a className="pb-6 w-full lg:max-w-md overflow-ellipsis">
-              <BlockContent blocks={blocks} />
-              ...
-            </a>
-            <a className="uppercase text-gray-800 hover:text-black">
-              Continue Reading <i className="fas fa-arrow-right"></i>
-            </a>
           </div>
         </a>
       </Link>
