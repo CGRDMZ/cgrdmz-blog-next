@@ -3,15 +3,31 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
+import * as gtag from "../utils/ga";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
   return (
     <>
       <Head>
         <title>CGRDMZ - Blog</title>
         <meta name="description" content="blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="google-site-verification" content="kzk9fbsVpS2ZlmkHZXG6bKshCiULwxdkoz0dVLggv9Y" />
+        <meta
+          name="google-site-verification"
+          content="kzk9fbsVpS2ZlmkHZXG6bKshCiULwxdkoz0dVLggv9Y"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="min-h-screen flex flex-col">
