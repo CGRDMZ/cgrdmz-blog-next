@@ -13,7 +13,7 @@ export default function Navigation() {
 
   return (
     <>
-      <div className="w-screen bg-gray-800 relative">
+      <header className="w-screen bg-gray-800 relative">
         <nav className="w-full container xl:max-w-6xl px-2 flex flex-row items-center justify-between mx-auto">
           <Link href="/">
             <a>
@@ -83,7 +83,7 @@ export default function Navigation() {
             </div>
           </button>
         </nav>
-      </div>
+      </header>
     </>
   );
 }
