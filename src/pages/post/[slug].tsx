@@ -40,7 +40,7 @@ export default function PostDetail({ post }: Props) {
               layout="responsive"
               width="1280"
               height="720"
-              objectFit="contain"
+              objectFit="cover"
               alt={post.imageFileName?.split(".")[0] || ""}
             />
           )}
