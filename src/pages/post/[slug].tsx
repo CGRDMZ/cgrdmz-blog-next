@@ -37,8 +37,10 @@ export default function PostDetail({ post }: Props) {
           {post && (
             <Image
               src={post.imageUrl || ""}
+              layout="responsive"
               width="1280"
               height="720"
+              objectFit="contain"
               alt={post.imageFileName?.split(".")[0] || ""}
             />
           )}
