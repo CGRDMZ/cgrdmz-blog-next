@@ -20,10 +20,13 @@ export default function PostDetail({ post }: Props) {
   if (router.isFallback) {
     return <div>loading</div>;
   }
-
+  console.log(post?.body);
+  
+  
   return (
     <>
       <Head>
+        <meta name="description" content={`${post?.body ? post.body[0].children.map(val => val.text) : ""}`} />
         <title>{post?.title}</title>
       </Head>
       <div className="container xl:max-w-6xl mx-auto px-3">

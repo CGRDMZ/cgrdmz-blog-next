@@ -4,7 +4,7 @@ export interface IPost {
   slug?: Slug;
   imageUrl?: string;
   author?: Author;
-  body?: Array<Object>;
+  body?: Array<{children: Array<{text: string}>}>;
   title?: string;
   categories?: Array<string>;
   _createdAt?: Date;
