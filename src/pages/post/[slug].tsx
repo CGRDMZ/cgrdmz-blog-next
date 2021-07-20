@@ -20,13 +20,16 @@ export default function PostDetail({ post }: Props) {
   if (router.isFallback) {
     return <div>loading</div>;
   }
-  console.log(post?.body);
-  
-  
+
   return (
     <>
       <Head>
-        <meta name="description" content={`${post?.body ? post.body[0].children.map(val => val.text) : ""}`} />
+        <meta
+          name="description"
+          content={`${
+            post?.body ? post.body[0].children.map((val) => val.text) : ""
+          }`}
+        />
         <title>{post?.title}</title>
       </Head>
       <div className="container xl:max-w-6xl mx-auto px-3">
@@ -36,7 +39,7 @@ export default function PostDetail({ post }: Props) {
               src={post.imageUrl || ""}
               width="1280"
               height="720"
-              alt="post image"
+              alt={post.imageFileName?.split(".")[0] || ""}
             />
           )}
         </div>

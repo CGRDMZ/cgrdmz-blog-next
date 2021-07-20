@@ -3,8 +3,9 @@ import sanityClient from "../sanity/sanityClient";
 export interface IPost {
   slug?: Slug;
   imageUrl?: string;
+  imageFileName?: string;
   author?: Author;
-  body?: Array<{children: Array<{text: string}>}>;
+  body?: Array<{ children: Array<{ text: string }> }>;
   title?: string;
   categories?: Array<string>;
   _createdAt?: Date;
@@ -88,14 +89,17 @@ export async function getPostBySlug(slug: String) {
 		body[] {
       ...,
       asset-> {
+        originalFilename,
         url
       }
     },
 		_createdAt,
 		author->,
 		"categories": categories[]->title,
-		"imageUrl": mainImage.asset->url
+		"imageUrl": mainImage.asset->url,
+    "imageFileName": mainImage.asset->originalFilename
 	}`;
   let queryResult = await sanityClient.fetch<IPost>(query, { slug: slug });
+
   return queryResult;
 }
