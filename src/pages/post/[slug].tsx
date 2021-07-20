@@ -41,6 +41,7 @@ export default function PostDetail({ post }: Props) {
               width="1280"
               height="720"
               objectFit="cover"
+              priority={true}
               alt={post.imageFileName?.split(".")[0] || ""}
             />
           )}
