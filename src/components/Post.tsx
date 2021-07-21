@@ -35,8 +35,8 @@ export default function Post({
               objectFit="cover"
               placeholder="empty"
               priority={true}
-              className="filter transform transition-all duration-100 ease-in-out group-hover:brightness-50 group-hover:grayscale-0"
             />
+            <div className="bg-black absolute top-0 bottom-0 right-0 left-0 opacity-0 transition-opacity duration-100 ease-in-out group-hover:opacity-50"></div>
             <div className="absolute z-10 bottom-0 m-5 p-3 bg-white bg-opacity-90 rounded-lg flex flex-col transform transition-all duration-100 ease-in-out md:group-hover:scale-101">
               <span className="line-clamp-2 text-xl sm:text-2xl md:text-3xl font-bold hover:text-gray-700 pb-1">
                 {title}
