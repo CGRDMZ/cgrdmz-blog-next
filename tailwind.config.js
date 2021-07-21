@@ -5,9 +5,17 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    scale: {
+      '101': '1.01',
+    }
   },
   variants: {
-    extend: {},
+    extend: {
+      translate: ['group-hover'],
+      grayscale: ['group-hover'],
+      brightness: ['group-hover'],
+      scale: ['group-hover']
+    },
   },
   plugins: [
     plugin(function ({ addUtilities }) {
@@ -22,5 +30,6 @@ module.exports = {
       };
       addUtilities(newUtilities);
     }),
+    require('@tailwindcss/line-clamp'),
   ],
 };

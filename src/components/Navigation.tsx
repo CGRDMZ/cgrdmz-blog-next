@@ -13,8 +13,8 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="w-screen bg-gray-800 relative">
-        <nav className="w-full container xl:max-w-6xl px-2 flex flex-row items-center justify-between mx-auto">
+      <header className="w-full bg-gray-800 relative">
+        <nav className="w-full xl:max-w-5xl px-2 flex flex-row items-center justify-between mx-auto">
           <Link href="/">
             <a>
               <Logo />
@@ -28,7 +28,7 @@ export default function Navigation() {
               "bg-gray-500",
               "bg-opacity-75",
               "z-20",
-              "w-screen",
+              "w-full",
               "h-screen",
               "flex",
               "flex-col",
@@ -58,13 +58,13 @@ export default function Navigation() {
               <NavItem>Contact</NavItem>
             </div>
           </div>
-          <div className={cx("text-white", "sm:flex", "sm:flex-row", "hidden")}>
+          <div className={cx("text-white", "md:flex", "sm:flex-row", "hidden")}>
             <NavItem url="/about">About</NavItem>
             <NavItem>Portfolio</NavItem>
             <NavItem>Contact</NavItem>
           </div>
           <button
-            className="sm:hidden w-10 h-10 relative"
+            className="md:hidden w-10 h-10 relative"
             onClick={onNavButtonClick}
           >
             <div className="block w-5 absolute left-1/2 top-1/2 transform  -translate-x-1/2 -translate-y-1/2">

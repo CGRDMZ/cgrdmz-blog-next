@@ -10,30 +10,32 @@ interface Props {
 
 export default function PostList({ posts, pageArray, currentPage }: Props) {
   return (
-    <div className="container w-full lg:max-w-6xl mx-auto sm:px-3 min-h-full">
-      {posts && (
-        <main className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-6">
-          {posts?.map((post) => {
-            return (
-              <Post
-                key={post.slug?.current}
-                title={post.title}
-                imageUrl={post.imageUrl}
-                categories={post.categories}
-                author={post.author?.name}
-                date={post._createdAt}
-                slug={post.slug?.current}
-                blocks={post.body ? post.body[0] : ""}
-                leftAligned={false}
-              />
-            );
-          })}
-        </main>
-      )}
-      <PostListNavigation
-        pages={pageArray || []}
-        currentPage={currentPage || 1}
-      />
+    <div className="grid grid-cols-4 px-1 md:px-5 max-w-5xl mx-auto gap-3 min-h-screen">
+      <div className="w-full col-span-4 divide-y-2 divide-gray-300">
+        {posts && (
+          <main className="grid grid-cols-1 md:grid-cols-2 my-5 gap-6">
+            {posts?.map((post) => {
+              return (
+                <Post
+                  key={post.slug?.current}
+                  title={post.title}
+                  imageUrl={post.imageUrl}
+                  categories={post.categories}
+                  author={post.author?.name}
+                  date={post._createdAt}
+                  slug={post.slug?.current}
+                  blocks={post.body ? post.body[0] : ""}
+                  leftAligned={false}
+                />
+              );
+            })}
+          </main>
+        )}
+        <PostListNavigation
+          pages={pageArray || []}
+          currentPage={currentPage || 1}
+        />
+      </div>
     </div>
   );
 }

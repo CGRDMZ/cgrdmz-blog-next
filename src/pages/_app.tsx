@@ -18,13 +18,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="kzk9fbsVpS2ZlmkHZXG6bKshCiULwxdkoz0dVLggv9Y"
         />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Welcome to my personal blog website. I write about tech, software and stuff. " />
+        <meta
+          name="description"
+          content="Welcome to my personal blog website. I write about tech, software and stuff. "
+        />
       </Head>
-      <div className="min-h-screen flex flex-col">
-        <Navigation />
-        <Component {...pageProps} />
-        <Footer />
-      </div>
+      <Navigation />
+      <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
