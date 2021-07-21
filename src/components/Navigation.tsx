@@ -14,7 +14,7 @@ export default function Navigation() {
   return (
     <>
       <header className="w-full bg-gray-800 relative">
-        <nav className="w-full xl:max-w-5xl px-2 flex flex-row items-center justify-between mx-auto">
+        <nav className="w-full max-w-5xl px-2 flex flex-row items-center justify-between mx-auto">
           <Link href="/">
             <a>
               <Logo />
