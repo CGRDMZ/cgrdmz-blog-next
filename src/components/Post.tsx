@@ -24,7 +24,7 @@ export default function Post({
   const postUrl = `/post/${encodeURIComponent(slug || "")}`;
 
   return (
-    <article className="flex flex-col px-1 group ">
+    <article className="flex flex-col group shadow rounded-lg">
       <Link href={postUrl}>
         <a>
           <div className="w-full h-60 md:h-80 relative object-cover z-8 sm:rounded-lg overflow-hidden">
@@ -35,6 +35,7 @@ export default function Post({
               objectFit="cover"
               placeholder="empty"
               priority={true}
+              className="border-2"
             />
             <div className="bg-black absolute top-0 bottom-0 right-0 left-0 opacity-0 transition-opacity duration-100 ease-in-out group-hover:opacity-50"></div>
             <div className="absolute z-10 bottom-0 m-5 p-3 bg-white bg-opacity-90 rounded-lg flex flex-col transform transition-all duration-100 ease-in-out md:group-hover:scale-101 border border-opacity-5 border-gray-800">
