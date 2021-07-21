@@ -1,15 +1,20 @@
 import { GetStaticProps } from "next";
 import PostList from "../components/PostList";
+import SideBar from "../components/SideBar";
 import { getPosts, IPost, pages } from "../model/postModel";
 
 interface Props {
   posts: Array<IPost>;
   pageArray: Array<string>;
-  currentPage: number
+  currentPage: number;
 }
 
 export default function Home({ posts, pageArray, currentPage }: Props) {
-  return <PostList currentPage={currentPage} posts={posts} pageArray={pageArray} />;
+  return (
+    <>
+      <PostList currentPage={currentPage} posts={posts} pageArray={pageArray} />
+    </>
+  );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -19,8 +24,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       posts,
       pageArray,
-      "currentPage": 1
+      currentPage: 1,
     },
-    revalidate: +process.env.VALIDATE_TIME! || 120
+    revalidate: +process.env.VALIDATE_TIME! || 120,
   };
 };

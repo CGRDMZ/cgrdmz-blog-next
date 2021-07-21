@@ -26,7 +26,7 @@ class MyDocument extends Document {
             </>
           )}
         </Head>
-        <body className="no-scrollbar min-h-screen">
+        <body className="overflow-y-scroll min-h-screen antialiased">
           <Main />
           <NextScript />
         </body>

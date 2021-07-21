@@ -19,17 +19,15 @@ export default function Post({
   categories,
   author,
   date,
-  blocks,
   slug,
-  leftAligned,
 }: Props) {
   const postUrl = `/post/${encodeURIComponent(slug || "")}`;
 
   return (
-    <article className="flex flex-col filter drop-shadow transform transition-all duration-75 ease-in-out sm:hover:-translate-y-1 sm:hover:shadow-xl sm:rounded-lg overflow-hidden flex-grow">
+    <article className="flex flex-col px-1 group ">
       <Link href={postUrl}>
         <a>
-          <div className="w-full h-60 md:h-80 relative object-cover z-10 sm:rounded-t-lg">
+          <div className="w-full h-60 md:h-80 relative object-cover z-8 sm:rounded-lg overflow-hidden">
             <Image
               src={imageUrl || ""}
               layout="fill"
@@ -37,34 +35,23 @@ export default function Post({
               objectFit="cover"
               placeholder="empty"
               priority={true}
+              className="filter transform transition-all duration-100 ease-in-out group-hover:brightness-50 group-hover:grayscale-0"
             />
-          </div>
-          <div className="bg-white flex flex-col justify-start p-6 max-w-3xl w-full flex-1">
-            {categories && (
-              <div className="inline-block">
-                {categories.map((category) => (
-                  <a
-                    className="text-blue-700 text-sm font-bold uppercase pb-5 mr-2"
-                    key={category}
-                  >
-                    {category}
-                  </a>
-                ))}
-              </div>
-            )}
-            <span className="text-3xl font-bold hover:text-gray-700 pb-1">
-              {title}
-            </span>
-            <p className="text-sm text-gray-300">
-              By{" "}
-              <span className="font-semibold text-gray-400 hover:text-gray-800">
-                {author}
+            <div className="absolute z-10 bottom-0 m-5 p-3 bg-white bg-opacity-90 rounded-lg flex flex-col transform transition-all duration-100 ease-in-out md:group-hover:scale-101">
+              <span className="line-clamp-2 text-xl sm:text-2xl md:text-3xl font-bold hover:text-gray-700 pb-1">
+                {title}
               </span>
-              , Published on{" "}
-              <span className="font-semibold text-gray-400 hover:text-gray-800">
-                {new Date(date || "").toLocaleDateString()}
-              </span>
-            </p>
+              <p className="text-sm text-gray-400">
+                By{" "}
+                <span className="font-semibold text-gray-600 hover:text-gray-800">
+                  {author}
+                </span>
+                , Published on{" "}
+                <span className="font-semibold text-gray-600 hover:text-gray-800">
+                  {new Date(date || "").toLocaleDateString()}
+                </span>
+              </p>
+            </div>
           </div>
         </a>
       </Link>
