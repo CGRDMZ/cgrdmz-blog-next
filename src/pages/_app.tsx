@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className="min-h-screen flex flex-col bg-gray-100">
       <Head>
         <title>CGRDMZ - Blog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Navigation />
       <Component {...pageProps} />
       <Footer />
-    </>
+    </div>
   );
 }
 export default MyApp;
