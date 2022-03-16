@@ -55,13 +55,13 @@ export default function Navigation() {
               <NavItem>Portfolio</NavItem>
             </div>{" "}
             <div onClick={onNavButtonClick}>
-              <NavItem>Contact</NavItem>
+              <NavItem url="/contact">Contact</NavItem>
             </div>
           </div>
           <div className={cx("text-white", "md:flex", "sm:flex-row", "hidden")}>
             <NavItem url="/about">About</NavItem>
             <NavItem>Portfolio</NavItem>
-            <NavItem>Contact</NavItem>
+            <NavItem url="/contact">Contact</NavItem>
           </div>
           <button
             className="md:hidden w-10 h-10 relative"
