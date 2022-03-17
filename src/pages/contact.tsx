@@ -3,6 +3,7 @@ import { faGithub, faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-
 import { faArrowRight, faEnvelope, faWater } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
+import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -45,6 +46,9 @@ const GetInTouch = () => {
 const ContactDetail = () => {
   return (
     <>
+      <Head>
+        <title>CGRDMZ - Contact</title>
+      </Head>
       <div className="flex flex-col justify-center items-center w-full mt-6">
         <h1 className="text-5xl text-gray-500 italic text-center font-thin">
           here are my contacts!
