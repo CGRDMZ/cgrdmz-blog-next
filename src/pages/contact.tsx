@@ -1,36 +1,42 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition, IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faGithub, faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight, faEnvelope, faWater } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
+import Link from "next/link";
 import { useState } from "react";
 
-interface Props {
-  visible: boolean;
-  onClick: () => void;
-}
+type ContactType = "Email" | "LinkedIn" | "Github" | "Twitter";
 
-const GetInTouch = ({ visible, onClick }: Props) => {
+const SocialBtn = ({social, color, url}: {social: ContactType, color: string, url: string}) => {
+
+  const socialMap : {[key: string]: IconDefinition} = {
+    "LinkedIn": faLinkedinIn,
+    "Github": faGithub,
+    "Email": faEnvelope,
+    "Twitter": faTwitter,
+  }
+
   return (
-    <div className={classNames("flex justify-center items-center w-full")}>
-      <div
-        className={classNames(
-          "flex-1 transform transition-all duration-500 ease-in-out",
-          { "translate-x-2/3": !visible, "opacity-0": !visible }
-        )}
-      >
-        <h2 className="text-9xl font-mono text-">Wanna get in touch?</h2>
-      </div>
-      <div
-        className={classNames(
-          "flex-1 transform transition-all duration-500 ease-in-out cursor-pointer",
-          { "translate-x-2/3": !visible, "opacity-0": !visible }
-        )}
-      >
-        <div
-          className="rounded-full bg-gray-800 animate-pulse w-16 h-16 flex justify-center items-center p-4"
-          onClick={onClick}
-        >
-          <FontAwesomeIcon color={"white"} icon={faArrowRight} />
+    <Link href={url} passHref>
+      <a rel="noreferrer noopener" target="_blank">
+        <div className="rounded-full p-2" style={{backgroundColor: color}}>
+          <div className="w-6 h-6">
+            <FontAwesomeIcon icon={socialMap[social]} size="sm" color="white" />
+          </div>
         </div>
+      </a>
+    </Link>
+  );
+};
+
+const GetInTouch = () => {
+  return (
+    <div className={classNames("flex justify-center items-center w-full mt-8")}>
+      <div className={classNames("flex-1 max-w-md")}>
+        <h2 className="text-7xl sm:text-9xl font-mono font-extrabold text-center">
+          Wanna get in touch?
+        </h2>
       </div>
     </div>
   );
@@ -38,22 +44,26 @@ const GetInTouch = ({ visible, onClick }: Props) => {
 
 const ContactDetail = () => {
   return (
-      <div className="flex justify-center items-center w-full">
-        <h1 className="text-5xl font-mono">Here are my contacts!</h1>
+    <>
+      <div className="flex flex-col justify-center items-center w-full mt-6">
+        <h1 className="text-5xl text-gray-500 italic text-center font-thin">
+          here are my contacts!
+        </h1>
+        <div className="flex flex-row gap-4 my-8">
+          <SocialBtn social="LinkedIn" color="#0e76a8" url="https://www.linkedin.com/in/cgrdmz/" />
+          <SocialBtn social="Github" color="#4078c0" url="https://github.com/CGRDMZ" />
+          <SocialBtn social="Email" color="#1f2937" url="https://www.linkedin.com/in/cgrdmz/" />
+          <SocialBtn social="Twitter" color="#1DA1F2" url="https://twitter.com/CGRDMZ" />
+        </div>
       </div>
+    </>
   );
 };
 
 const Contact = () => {
-  const [flow, setFlow] = useState<"first" | "second">("first");
-
-  const changeFlow = () => {
-    setFlow("second");
-  };
-
   return (
-    <div className="flex overflow-hidden flex-row w-full max-w-5xl mx-auto h-full">
-      <GetInTouch visible={flow === "first"} onClick={changeFlow} />
+    <div className="overflow-hidden w-full max-w-5xl mx-auto">
+      <GetInTouch />
       <ContactDetail />
     </div>
   );

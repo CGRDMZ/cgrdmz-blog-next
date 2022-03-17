@@ -3,6 +3,8 @@ import Logo from "./Logo";
 import NavItem from "./NavItem";
 import cx from "classnames";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navigation() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -42,25 +44,23 @@ export default function Navigation() {
               { hidden: !navOpen }
             )}
           >
-            <button
-              className="text-bold text-3xl w-10 h-10 mr-3 md:mr-5 bg-gray-400 rounded-full"
+            <div
+              className="p-3 bg-gray-400 rounded-full cursor-pointer"
               onClick={onNavButtonClick}
             >
-              X
-            </button>
+              <div className="w-4 h-4">
+                <FontAwesomeIcon icon={faX} size="xs"/>
+              </div>
+            </div>
             <div onClick={onNavButtonClick}>
               <NavItem url="/about">About</NavItem>
             </div>
-            <div onClick={onNavButtonClick}>
-              <NavItem>Portfolio</NavItem>
-            </div>{" "}
             <div onClick={onNavButtonClick}>
               <NavItem url="/contact">Contact</NavItem>
             </div>
           </div>
           <div className={cx("text-white", "md:flex", "sm:flex-row", "hidden")}>
             <NavItem url="/about">About</NavItem>
-            <NavItem>Portfolio</NavItem>
             <NavItem url="/contact">Contact</NavItem>
           </div>
           <button
