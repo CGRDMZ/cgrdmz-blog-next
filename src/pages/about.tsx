@@ -8,8 +8,7 @@ export default function About() {
       <Head>
         <title>CGRDMZ - About</title>
       </Head>
-      <div className="w-full container xl:max-w-6xl mx-auto">
-        <div>
+      <div className="w-full container xl:max-w-5xl mx-auto px-2">
           <div className="flex flex-col sm:flex-row justify-start items-center">
             <div className="flex justify-center rounded-full items-center m-10">
               <Image
@@ -73,7 +72,6 @@ export default function About() {
             <TechCard name="Android" levels={{ Knowledge: 3, Experience: 2 }} />
           </div>
         </div>
-      </div>
     </>
   );
 }
