@@ -32,7 +32,7 @@ export default function PostDetail({ post }: Props) {
         />
         <title>{post?.title}</title>
       </Head>
-      <div className="container xl:max-w-6xl mx-auto px-3">
+      <div className="container max-w-2xl mx-auto px-3">
         <div className="mt-5">
           {post && (
             <Image
