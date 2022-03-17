@@ -52,7 +52,7 @@ const ContactDetail = () => {
         <div className="flex flex-row gap-4 my-8">
           <SocialBtn social="LinkedIn" color="#0e76a8" url="https://www.linkedin.com/in/cgrdmz/" />
           <SocialBtn social="Github" color="#4078c0" url="https://github.com/CGRDMZ" />
-          <SocialBtn social="Email" color="#1f2937" url="https://www.linkedin.com/in/cgrdmz/" />
+          <SocialBtn social="Email" color="#1f2937" url="mailto:cgrdmzz@gmail.com" />
           <SocialBtn social="Twitter" color="#1DA1F2" url="https://twitter.com/CGRDMZ" />
         </div>
       </div>
